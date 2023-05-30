@@ -6,3 +6,5 @@ Grupo de trabajo de inventarios
 
 - Francisco Gallardo <francisco.gdalenz@gmail.com>
 - Celeste Aduviri <sky.mel705@gmail.com>
+
+![El mejor programador de R](Foto.jpg.jpg)
