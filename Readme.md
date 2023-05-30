@@ -1,4 +1,4 @@
-#Gestion de la cadena de suministros UCB
+# Gestion de la cadena de suministros UCB
 
 Grupo de trabajo de inventarios
 
