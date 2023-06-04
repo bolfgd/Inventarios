@@ -2,7 +2,12 @@
 
 Grupo de trabajo de inventarios
 
-## Integrantes
+Desafio propuesto Predicción de quiebre de inventario
+
+Dataset propuesto: **predic_backorder.zip**
+<hr>
+
+## Integrantes grupo 1
 
 - Francisco Gallardo <francisco.gdalenz@gmail.com>
 - Celeste Aduviri <sky.mel705@gmail.com>
