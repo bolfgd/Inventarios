@@ -110,7 +110,7 @@ main= "Vida en Semanas SIEMENS 1005",xlab="Ficha Taller Batería con falla", yla
 
 ```
 
-Promedio de vida
+# Promedio de vida
 
 ```{r}
 vida_media_muestra <- mean(Muestra_75[,2])
@@ -130,21 +130,21 @@ abline(h=50,col="green")
 ```
 La línea roja muestra la duración mínima por contrato garantizada por el fabricante. La línea verde indica la duración máxima de la carga e indica si el producto conserva el electrolito original. Se puede extender la duración de la carga con otro electrolíto no original, pero no tendrá garantía del fabricante en caso de fallas.
 
-Muestra de Historial de Carga
+# Muestra de Historial de Carga
 
 ```{r}
 plot(Muestra_75[ , 1:2],main = "Resumen de Casos",xlab = "Ficha Bateria",ylab="Edad Semanas", type="b", col="RED")
 plot(Muestra_1005[ , 1:2],main = "Resumen de Casos",xlab = "Ficha Bateria",ylab="Edad Semanas", type="b", col="RED")
 ```
 
-Histogramas de Edades
+# Histogramas de Edades
 
 ```{r}
 hist(Muestra_75[ ,2],breaks = 10, main = "Histogramas de edades")
 hist(Muestra_1005[ ,2],breaks = 10, main = "Histogramas de edades")
 ```
 
-Gráficos de Densidad
+# Gráficos de Densidad
 
 ```{r}
 density(Muestra_75[ ,2])
@@ -156,7 +156,7 @@ plot(density(Muestra_75[ ,2]), main = "Gráfico de Densidad", ylab="Cantidad rel
 plot(density(Muestra_1005[ ,2]), main = "Gráfico de Densidad", ylab="Cantidad relativa de muestras",xlab="Edad")
 ```
 
-Gráfica conjunta de Histograma y Densidad
+#Gráfica conjunto de Histograma y Densidad
 
 ```{r}
 hist(Muestra_75[ ,2], # histogram
@@ -182,7 +182,9 @@ lines(density(Muestra_1005[ ,2]), # density plot
  col = "chocolate4")
 ```
 
-Varianza de Muestra y Población
+## Varianza de Muestra y Población, Media, Desvio Estandar
+
+# Varianza de la Muestra
 
 ```{r}
 var_muestra <- var(Muestra_75 [ ,2])
@@ -190,6 +192,8 @@ var_muestra
 var_muestra2 <- var(Muestra_1005 [ ,2])
 var_muestra2
 ```
+#Cantidad de Datos
+
 ```{r}
 n <- length(Muestra_75[ ,2])
 n
@@ -202,25 +206,26 @@ n_over_n_1
 n_over_n_1 <- n2/(n2-1)
 n_over_n_1
 ```
+# Calculo de la Media
 
-Calculo de la media
 ```{r}
 mean(Muestra_75)
 mean(Muestra_1005)
 ```
-Calculo del desvio standard de la duracion de las baterias
+# Calculo del desvio standar de la duracion de las baterias
 
 ```{r}
 sd(Muestra_75)
 sd(Muestra_1005)
 
-dsm <- sd({Muestra_75[ ,2]})
+dsm <- sd({Muestra_75[ ,2]}) #valor real 
 dsm
 dsm2 <- sd({Muestra_1005[ ,2]})
 dsm2
 ```
 
-Varianza Poblacional
+# Varianza Poblacional
+
 ```{r}
 var_poblacion <- var(Muestra_75[ ,2]) / n
 var_poblacion
@@ -228,7 +233,7 @@ var_poblacion2 <- var(Muestra_1005[ ,2]) / n2
 var_poblacion2
 ```
 
-En tanto que el desvió estándar de la población es
+# En tanto que el desvió estándar de la población es
 
 ```{r}
 dsp <- sqrt(var_poblacion)
@@ -248,9 +253,10 @@ dspp_75
 dspp_1005 <- dsp2/n2
 dspp_1005
 ```
-Graficos Resumen de Cajas y Bigotes
+# Graficos Resumen de Cajas y Bigotes
 
 ```{r}
+
 boxplot(Muestra_75[ ,2])
 boxplot(Muestra_1005[ ,2])
 ```
@@ -261,7 +267,22 @@ Analizando los graficos, podemos decir que las Baterias de SIEMENS 1005 muestra 
 summary(Muestra_75[ ,2])
 summary(Muestra_1005[ ,2])
 ```
+## Gráfico de Comparación
+
+```{r}
+
+boxplot(Muestra_75[ ,2],Muestra_1005[ ,2],xlab="Datos varta - Datos Siemens",ylab="Duracion de Bateria en Semanas")
+
+```
 
 
 
+## PRUEBA STUDENT
 
+```{r}
+t.test(Muestra_75,Muestra_1005)
+
+```
+## Conclusión 
+
+Segun el grafico de comparacion se observa que la bateria SIEMENS tiene mayor varianza y el valor p-value es >0.05 lo cual nos indica que la hipotesis NULA es verdadera con medias diferentes de 0. 
